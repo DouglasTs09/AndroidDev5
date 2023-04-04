@@ -45,6 +45,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bottomNav = activity?.findViewById<View>(R.id.bottomNavigationView)
+        bottomNav?.visibility = View.VISIBLE
+
         Log.i("home","estoy aquí")
         viewModel.obtenerProductos()
 
@@ -62,5 +65,11 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val bottomNav = activity?.findViewById<View>(R.id.bottomNavigationView)
+        bottomNav?.visibility = View.GONE
     }
 }

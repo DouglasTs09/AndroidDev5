@@ -86,43 +86,4 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"/>
 
-    <!-- Barra de opciones -->
-    <LinearLayout
-        android:id="@+id/linearLayoutOptions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <ImageView
-            android:id="@+id/imageViewHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_home"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/imageViewFavorites"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_favorite"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/imageViewCategories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_category"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/imageViewProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_profile"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
 </RelativeLayout>

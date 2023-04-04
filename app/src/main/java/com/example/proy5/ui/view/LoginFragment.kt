@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.proy5.MainActivity
 import com.example.proy5.R
 import com.example.proy5.databinding.FragmentLoginBinding
 
@@ -23,6 +24,7 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 

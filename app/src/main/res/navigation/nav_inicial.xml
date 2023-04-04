@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.proy5.ui.view.LoginFragment"
-        android:label="fragment_login"
+        android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.proy5.ui.view.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detailProductFragment"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/detailProductFragment"
         android:name="com.example.proy5.ui.view.DetailProductFragment"
-        android:label="fragment_detail_product"
+        android:label="Detalle del Producto"
         tools:layout="@layout/fragment_detail_product" >
         <argument
             android:name="productDetail"
