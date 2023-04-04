@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.proy5.R
 import com.example.proy5.data.ListaDataSource
 import com.example.proy5.databinding.FragmentHomeBinding
@@ -49,7 +50,11 @@ class HomeFragment : Fragment() {
 
         viewModel.productos.observe(viewLifecycleOwner) { data ->
             println("OBSERVE: "+data)
-            val adapter = ProductoAdapter(data)
+            val adapter = ProductoAdapter(data, {
+                    producto, posicion ->
+                val action = HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(producto)
+                findNavController().navigate(action)
+            } )
             binding.recyclerViewProducts.adapter = adapter
         }
     }

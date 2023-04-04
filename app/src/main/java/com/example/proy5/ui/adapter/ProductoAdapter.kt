@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.proy5.databinding.ItemProductoBinding
 import com.example.proy5.entidad.Producto
 
-class ProductoAdapter (val lista: List<Producto>): Adapter<ProductoViewHolder>() {
+class ProductoAdapter (val lista: List<Producto>, val click: (Producto, Int) -> Unit): Adapter<ProductoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
         val view = ItemProductoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -15,13 +15,15 @@ class ProductoAdapter (val lista: List<Producto>): Adapter<ProductoViewHolder>()
     }
 
     override fun getItemCount(): Int {
-        Log.i("Cant Product", "lala" + lista.size)
         return lista.size
     }
 
     override fun onBindViewHolder(holder: ProductoViewHolder, position: Int) {
         val producto = lista[position]
         holder.bind(producto)
+        holder.itemView.setOnClickListener {
+            click(producto, holder.layoutPosition)
+        }
     }
 
 
