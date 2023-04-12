@@ -1,16 +1,17 @@
 package com.example.proy5.entidad
 
 import java.io.Serializable
+import java.util.*
 
 class Producto (
+    val id: String = UUID.randomUUID().toString(),
     val category: String,
     val description: String,
-    val id: Int,
     val image_url: String,
     val name: String,
     val price: Double
     ) : Serializable {
     override fun toString(): String {
-        return "Producto(category='$category', description='$description', id=$id, image_url='$image_url', name='$name', price=$price)"
+        return "Producto(id='$id', category='$category', description='$description', image_url='$image_url', name='$name', price=$price)"
     }
 }
