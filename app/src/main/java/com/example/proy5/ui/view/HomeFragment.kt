@@ -60,6 +60,11 @@ class HomeFragment : Fragment() {
             } )
             binding.recyclerViewProducts.adapter = adapter
         }
+
+        binding.imageButtonCart.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToCartFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroy() {
