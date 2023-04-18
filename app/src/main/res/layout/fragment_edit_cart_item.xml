@@ -29,4 +29,5 @@
         android:layout_gravity="center"
         android:text="@string/btnEliminar"
         android:layout_marginTop="8dp"/>
+
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.proy5.R
 import com.example.proy5.app.CartItemAplication
@@ -19,6 +20,7 @@ import com.example.proy5.ui.viewmodel.CartViewModel
 import com.example.proy5.ui.viewmodel.HomeViewModel
 import com.example.proy5.ui.viewmodel.ViewModelFactory
 import com.example.proy5.ui.viewmodel.ViewModelFactoryCart
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.squareup.picasso.Picasso
 
 class DetailProductFragment : Fragment() {
@@ -61,6 +63,7 @@ class DetailProductFragment : Fragment() {
             binding.numberPicker.wrapSelectorWheel = true
 
         binding.buttonAgregarAlCarrito.setOnClickListener {
+
             val cartItem = productSelect?.let {
                 CartItem(
                     name= it.name,
@@ -70,10 +73,32 @@ class DetailProductFragment : Fragment() {
                     image_url = productSelect.image_url
                 )
             }
-            if (cartItem != null) {
-                cartItemViewModel.agregar(cartItem)
-            }
-            Log.i("MSG","Se agrego Correctamente:" + cartItem)
+
+            MaterialAlertDialogBuilder(requireContext())
+                .setIcon(R.drawable.ic_add)
+                .setTitle("Agregar")
+                .setMessage("¿Desea agregar este producto?")
+                .setPositiveButton("Agregar") { _, _ ->
+                    if (cartItem != null) {
+                        cartItemViewModel.agregar(cartItem)
+                    }
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setIcon(R.drawable.ic_info)
+                        .setPositiveButton("Seguir Comprando") { _, _ ->
+                            if (cartItem != null) {
+                                cartItemViewModel.agregar(cartItem)
+                            }
+                            findNavController().popBackStack()
+                        }
+                        .setNegativeButton("Ir al carrito de compras") { _,_ ->
+                            val action = DetailProductFragmentDirections.actionDetailProductFragmentToCartFragment()
+                            findNavController().navigate(action)
+                        }
+                        .show()
+                }
+                .setNegativeButton("Cancelar", null)
+                .setNeutralButton("Cerrar", null)
+                .show()
         }
     }
 

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.proy5.data.ListaDataSource
 import com.example.proy5.repository.ListaRepository
+import com.example.proy5.repository.PedidoRepository
 
 /*class ViewModelFactory: ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -27,5 +28,15 @@ interface Factory {
 class ViewModelFactory(private val listaRepository: ListaRepository) : Factory {
     override fun create(): HomeViewModel {
         return HomeViewModel(listaRepository)
+    }
+}
+
+interface FactoryPedido {
+    fun create(): PedidoViewModel
+}
+
+class ViewModelFactoryPedido(private val pedidoRepository: PedidoRepository) : FactoryPedido {
+    override fun create(): PedidoViewModel {
+        return PedidoViewModel(pedidoRepository)
     }
 }

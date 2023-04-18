@@ -8,5 +8,6 @@
     <string name="login">Log In</string>
     <string name="btnActualizar">Actualizar</string>
     <string name="btnEliminar">Eliminar</string>
+    <string name="btnComprar">Comprar</string>
 
 </resources>
