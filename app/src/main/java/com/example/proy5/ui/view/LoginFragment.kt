@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.proy5.MainActivity
 import com.example.proy5.R
 import com.example.proy5.databinding.FragmentLoginBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class LoginFragment : Fragment() {
 
@@ -33,7 +34,18 @@ class LoginFragment : Fragment() {
 
         binding.buttonLogin.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-            findNavController().navigate(action)
+            val username = binding.editTextUsername.text
+            val password = binding.editTextPassword.text
+            if (username.isEmpty() || password.isEmpty()) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setIcon(R.drawable.ic_info)
+                    .setTitle("Error")
+                    .setMessage("Debe ingresar usuario y/o contraseña.")
+                    .setNeutralButton("Cerrar", null)
+                    .show()
+            } else {
+                findNavController().navigate(action)
+            }
         }
     }
 
