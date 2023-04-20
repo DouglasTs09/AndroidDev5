@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.helper.widget.Carousel
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proy5.R
 import com.example.proy5.data.ListaDataSource
 import com.example.proy5.databinding.FragmentHomeBinding
@@ -16,12 +22,15 @@ import com.example.proy5.repository.ListaRepository
 import com.example.proy5.ui.adapter.ProductoAdapter
 import com.example.proy5.ui.viewmodel.HomeViewModel
 import com.example.proy5.ui.viewmodel.ViewModelFactory
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mig35.carousellayoutmanager.CarouselLayoutManager
+import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
+import com.mig35.carousellayoutmanager.CenterScrollListener
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
+
+    private lateinit var adapterProducto: ProductoAdapter
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -38,7 +47,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        adapterProducto = ProductoAdapter(emptyList(), {
+                producto, posicion ->
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(producto)
+            findNavController().navigate(action)
+        } )
         return binding.root
     }
 
@@ -52,24 +68,59 @@ class HomeFragment : Fragment() {
         viewModel.obtenerProductos()
 
         viewModel.productos.observe(viewLifecycleOwner) { data ->
-            println("OBSERVE: "+data)
-            val adapter = ProductoAdapter(data, {
-                    producto, posicion ->
-                val action = HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(producto)
-                findNavController().navigate(action)
-            } )
-            binding.recyclerViewProducts.adapter = adapter
+
+            binding.apply {
+                recyclerViewProducts.setHasFixedSize(true)
+                val carouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL)
+                carouselLayoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
+                carouselLayoutManager.setCircleLayout(true)
+                recyclerViewProducts.layoutManager = carouselLayoutManager
+                recyclerViewProducts.addOnScrollListener(CenterScrollListener())
+                adapterProducto = ProductoAdapter(data, {
+                        producto, posicion ->
+                    val action = HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(producto)
+                    findNavController().navigate(action)
+                } )
+                recyclerViewProducts.adapter = adapterProducto
+            }
+
         }
 
         binding.imageButtonCart.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToCartFragment()
             findNavController().navigate(action)
         }
+
+        binding.editTextSearch.addTextChangedListener {
+                val query = binding.editTextSearch.text.toString()
+                adapterProducto.filter(query)
+        }
+
+        binding.buttonMonitores.setOnClickListener {
+            adapterProducto.filterByCategory("monitores")
+        }
+
+        binding.buttonPcs.setOnClickListener {
+            adapterProducto.filterByCategory("pcs")
+        }
+
+        binding.buttonPerifericos.setOnClickListener {
+            adapterProducto.filterByCategory("perifericos")
+        }
+
+        binding.buttonProcesadores.setOnClickListener {
+            adapterProducto.filterByCategory("procesadores")
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        binding.editTextSearch.setText("")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.editTextSearch.setText("")
     }
 
     override fun onStop() {

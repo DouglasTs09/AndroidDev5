@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.CartFragment">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewItems"
         android:layout_width="match_parent"
@@ -18,71 +17,112 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/recyclerViewItems"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="32dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:text="Sub Total" />
+        android:text="@string/sub_total" />
 
     <TextView
         android:id="@+id/subtotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1500"
-        android:layout_below="@id/subtotalLabel"
+        android:layout_alignBaseline="@+id/subtotalLabel"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center_horizontal"/>
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/_1500"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
 
     <TextView
         android:id="@+id/igvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I.G.V."
-        android:layout_below="@id/subtotalTextView"
-        android:layout_alignParentEnd="true"
+        android:text="@string/i_g_v"
         android:layout_alignParentStart="true"
-        android:gravity="center_horizontal"/>
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/subtotalTextView"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/igvTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="180"
-        android:layout_below="@id/igvLabel"
+        android:layout_alignBaseline="@+id/igvLabel"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center_horizontal"/>
+        android:layout_marginEnd="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/_180"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/totalLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I.G.V."
+        android:text="@string/totalCart"
         android:layout_below="@id/igvTextView"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:gravity="center_horizontal"/>
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/totalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="180"
-        android:layout_below="@id/totalLabel"
+        android:layout_alignBaseline="@+id/totalLabel"
+        android:layout_marginEnd="32dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:text="@string/_180"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/btnComprar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_gravity="center"
-        android:text="@string/btnComprar"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/totalTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center_horizontal"/>
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="32dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:text="@string/btnComprar" />
+
+    <ImageView
+        android:id="@+id/imageViewLstIsEmtpy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_list_empty"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/textViewLstIsEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:text="@string/lista_vacia"/>
 
 </RelativeLayout>

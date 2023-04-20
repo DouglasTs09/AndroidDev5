@@ -29,4 +29,10 @@ class CartViewModel (private val repository: CartRepository) : ViewModel() {
             repository.eliminar(cartItem)
         }
     }
+
+    fun deleteAll() {
+        viewModelScope.launch {
+            repository.deleteAll()
+        }
+    }
 }

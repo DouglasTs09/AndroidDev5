@@ -77,4 +77,7 @@ dependencies {
 
     //SQUARE
     implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
+
+    //Carousel
+    implementation "com.mig35:carousellayoutmanager:1.4.6"
 }

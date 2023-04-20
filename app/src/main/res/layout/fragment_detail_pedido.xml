@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.DetailPedidoFragment"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+
+
+        <TextView
+            android:id="@+id/lblNPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/n_pedido"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginStart="36dp" />
+
+        <TextView
+            android:id="@+id/tvNPedido"
+            android:layout_alignBaseline="@+id/lblNPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="36dp"
+            android:layout_alignParentEnd="true"
+            android:text="@string/_432343"/>
+
+        <TextView
+            android:id="@+id/lblFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNPedido"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="32dp"
+            android:text="@string/fecha"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_alignBaseline="@+id/lblFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/_12_12_12"/>
+
+        <TextView
+            android:id="@+id/lblHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFecha"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:text="@string/hora"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvHora"
+            android:layout_alignBaseline="@+id/lblHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/_12_12_12_hora"/>
+
+        <View
+            android:layout_below="@id/tvHora"
+            android:id="@+id/divider"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/lblSubTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rvItems"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:text="@string/subtotal"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvSubTotal"
+            android:layout_alignBaseline="@+id/lblSubTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/s_0_000_00"/>
+
+        <TextView
+            android:id="@+id/lblIGV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSubTotal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:text="@string/i_g_v_pedido"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvIGV"
+            android:layout_alignBaseline="@+id/lblIGV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/s_0_000_00"/>
+
+        <TextView
+            android:id="@+id/lblTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvIGV"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:text="@string/total_pedido"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_alignBaseline="@+id/lblTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/s_0_000_00"/>
+
+
+
+</RelativeLayout>

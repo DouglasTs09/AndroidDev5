@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.HomeFragment">
 
-        <!-- Menú sandwich en el lado izquierdo superior -->
         <ImageView
             android:id="@+id/imageViewMenu"
             android:layout_width="wrap_content"
@@ -16,7 +15,6 @@
             android:layout_alignParentTop="true"
             android:layout_margin="16dp" />
 
-        <!-- Logo de carrito de compras en lado derecho superior -->
     <ImageButton
         android:id="@+id/imageButtonCart"
         android:layout_width="wrap_content"
@@ -30,17 +28,15 @@
         android:src="@drawable/ic_shopping_cart"
         android:background="@null"/>
 
-        <!-- Textview de búsqueda -->
         <EditText
             android:id="@+id/editTextSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Buscar producto"
+            android:hint="@string/buscar_producto"
             android:inputType="text"
             android:layout_below="@id/imageViewMenu"
             android:layout_margin="16dp" />
 
-        <!-- Menú scrolleable horizontal -->
         <HorizontalScrollView
             android:id="@+id/horizontalScrollViewMenu"
             android:layout_width="match_parent"
@@ -57,34 +53,34 @@
                     android:id="@+id/buttonPcs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PC's" />
+                    android:text="@string/pc_s_category" />
 
                 <Button
                     android:id="@+id/buttonProcesadores"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Procesadores" />
+                    android:text="@string/procesadores_category" />
 
                 <Button
                     android:id="@+id/buttonMonitores"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Monitores" />
+                    android:text="@string/monitores_category" />
 
                 <Button
                     android:id="@+id/buttonPerifericos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Periféricos" />
+                    android:text="@string/perif_ricos_category" />
 
             </LinearLayout>
         </HorizontalScrollView>
 
-        <!-- Carrusel de productos -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewProducts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="420dp"
             android:layout_below="@id/horizontalScrollViewMenu"
             android:layout_margin="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

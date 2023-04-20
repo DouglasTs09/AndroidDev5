@@ -1,16 +1,19 @@
 package com.example.proy5.entidad
 
 import java.io.Serializable
+import java.time.LocalDateTime
+import java.util.Date
 
 class Pedido (
     val customer: Customer,
     val items: List<ItemPedido>,
     val subtotal: Double,
     val total: Double,
-    val date: String
+    val date: String,
+    val codigo: Int,
     ) : Serializable {
     override fun toString(): String {
-        return "Pedido(customer=$customer, items=$items, subtotal=$subtotal, total=$total, date='$date')"
+        return "Pedido(customer=$customer, items=$items, subtotal=$subtotal, total=$total, date='$date', codigo=$codigo)"
     }
 }
 

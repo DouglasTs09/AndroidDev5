@@ -2,18 +2,18 @@ package com.example.proy5.network
 
 import com.example.proy5.entidad.Pedido
 import com.example.proy5.entidad.Producto
-import com.example.proy5.entidad.Result
-import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
+
 interface Services {
 
         @GET("productos.json")
         suspend fun getProductos(): List<Producto>
 
-        @POST("pedidos.json")
-        suspend fun crearPedido(@Body pedido: Pedido): Response<Void>
+        @PUT("pedidos/{id}.json")
+        suspend fun crearPedido(@Path("id") id:Int ,@Body pedido: Pedido): Response<Void>
+
+        @GET("pedidos.json")
+        suspend fun getPedidos(): List<Pedido>
 
 }

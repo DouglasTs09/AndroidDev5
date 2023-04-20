@@ -22,11 +22,15 @@ import com.example.proy5.ui.viewmodel.ViewModelFactory
 import com.example.proy5.ui.viewmodel.ViewModelFactoryCart
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.squareup.picasso.Picasso
+import java.text.NumberFormat
+import java.util.*
 
 class DetailProductFragment : Fragment() {
 
     private var _binding : FragmentDetailProductBinding? = null
     val binding get() = _binding!!
+
+    val formatter = NumberFormat.getCurrencyInstance(Locale("es","PE"))
 
     private val productoViewModel : HomeViewModel = ViewModelFactory(ListaRepository(ListaDataSource())).create()
 
@@ -49,11 +53,12 @@ class DetailProductFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val productSelect = args.productDetail
-        Log.i("MSG","Se productoDetail:" + productSelect)
 
+        val priceString = formatter.format(productSelect?.price)
 
         binding.textViewProductoTitulo.text = productSelect?.name ?: ""
-            binding.textViewProductoPrecio.text = productSelect?.price.toString() ?: "0.00"
+            binding.textViewProductoPrecio.text = priceString
+        binding.textViewDescription.text = productSelect?.description ?: ""
             val urlImage = productSelect?.image_url
             Picasso.get().load(urlImage).into(binding.imageViewProducto)
 
@@ -85,9 +90,6 @@ class DetailProductFragment : Fragment() {
                     MaterialAlertDialogBuilder(requireContext())
                         .setIcon(R.drawable.ic_info)
                         .setPositiveButton("Seguir Comprando") { _, _ ->
-                            if (cartItem != null) {
-                                cartItemViewModel.agregar(cartItem)
-                            }
                             findNavController().popBackStack()
                         }
                         .setNegativeButton("Ir al carrito de compras") { _,_ ->
@@ -97,7 +99,6 @@ class DetailProductFragment : Fragment() {
                         .show()
                 }
                 .setNegativeButton("Cancelar", null)
-                .setNeutralButton("Cerrar", null)
                 .show()
         }
     }

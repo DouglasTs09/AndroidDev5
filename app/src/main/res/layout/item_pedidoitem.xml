@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/producto_dos_puntos"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginStart="32dp"/>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_alignBaseline="@+id/lblName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="32dp"
+        android:layout_alignParentEnd="true"
+        android:text="@string/_432343"/>
+
+    <TextView
+        android:id="@+id/lblPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvName"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/precio_unitario_dos_puntos"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_alignBaseline="@+id/lblPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/s_0_000_00"/>
+
+    <TextView
+        android:id="@+id/lblCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPrice"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/cantidad_dos_puntos"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvCantidad"
+        android:layout_alignBaseline="@+id/lblCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/_10"/>
+
+    <TextView
+        android:id="@+id/lblTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvCantidad"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/precio_total_dos_puntos"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_alignBaseline="@+id/lblTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/s_0_000_00"/>
+
+    <View
+        android:layout_below="@id/tvTotal"
+        android:id="@+id/divider"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+
+</RelativeLayout>

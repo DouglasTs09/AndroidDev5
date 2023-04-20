@@ -10,9 +10,6 @@ import com.example.proy5.MainActivity
 import com.example.proy5.R
 import com.example.proy5.databinding.FragmentLoginBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
@@ -30,6 +27,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bottomNav = activity?.findViewById<View>(R.id.bottomNavigationView)
+        bottomNav?.visibility = View.GONE
 
         binding.buttonLogin.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()

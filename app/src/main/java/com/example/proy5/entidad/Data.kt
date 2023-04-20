@@ -5,3 +5,9 @@ class Data (val productos: List<Producto>) {
         return "Data(productos=$productos)"
     }
 }
+
+class DataPedidos (val pedidos: List<Pedido>) {
+    override fun toString(): String {
+        return "DataPedidos(pedidos=$pedidos)"
+    }
+}
